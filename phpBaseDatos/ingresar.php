@@ -1,49 +1,51 @@
 <?php
-include'Conexion.php';
+
+include 'Conexion.php';
 // tomo los valores y los almaceno en una vairalbe
 
-$email=trim($_POST['email']);
-$Password=trim($_POST['Password']);
+$email = trim($_POST['email']);
+$Password = trim($_POST['Password']);
 
+$Consulta1 = mysqli_query($con, "SELECT rol,login FROM usuario WHERE  clave='$Password'  and email='$email'") or die(mysql_error());
+//$sesion1 = array();
+$sesion1 = mysqli_fetch_row($Consulta1);
+echo $sesion1[0].'<br>';
+echo $sesion1[1];
 
-$r="o";
-$cmpr="Administrador";
+  $base_url = 'http://localhost/prueba/post/';
 
-$Consulta1=mysqli_query($con,"SELECT rol FROM usuario WHERE  clave='$Password'  and email='$email'")or die(mysql_error());
-while($datosConsulta=mysqli_fetch_array($Consulta1)){		
-		$r=$datosConsulta['rol'];
-		}
-echo $r;		
-switch ($r) {
-	case 'Administrador':
-		# code...
-	header('Location: http://localhost/post/Pp.php');
-		break;
-	case 'Editor':
-		# code...
-	header('Location: http://localhost/post/Post1.html');
-		break;
-	case 'Usuario':
-	header('Location: http://localhost/post/leer.php');
-		# code...
-		break;
-	
-	default:
-		# code...
-	//echo '<script language="javascript">alert("invalido");</script>'; 
-	header('Location: http://localhost/post/Inicio.html');
+    switch ($sesion1[0]) {
 
-		break;
-}
+    case 'Administrador':
+        // code...
+         session_start();
+         $_SESSION['login'] = $sesion1[1];
+         header('Location: '.$base_url.$sesion1[0].'.php');
+        break;
+    case 'Editor':
+        // code...1
+        session_start();
+        session_register('sess_var');
+        $sess_var = $sesion1[1];
+        header('Location: '.$base_url.$sesion1[0].'.php');
+        break;
+    case 'Usuario':
+        session_start();
+        session_register('sess_var');
+        $sess_var = $sesion1[1];
+        header('Location: '.$base_url.$sesion1[0].'.php');
+        // code...
+        break;
+
+    default:
+        // code...
+    header('Location: '.$base_url.'Inicio.html');
+
+        break;
+            }
 /*
-if ($r == $cmpr  ){
-header('Location: http://localhost/post/Pp.php');
-
-}else{
-header('Location: http://localhost/post/Post1.html');
-
-	}
-//echo '<script language="javascript">alert("invalido");</script>'; 
+echo '<pre>';
+print_r($sesion1);
+echo '</pre>';
 */
-	mysqli_close($con);	
-?>
+    mysqli_close($con);
