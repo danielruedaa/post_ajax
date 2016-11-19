@@ -57,15 +57,16 @@ session_start();
         echo '... ';
     }
    ?>
+  <div class="table-responsive">
 <table class="table">
 <div class="text-center">
 
-<tr>
-  <td><label> Nombre</label></td>
-  <td><label> Login</label></td>
-  <td><label> Rol</label></td>
-  <td><label> Correo</label></td>
-  <td><label> Opciones</label></td>
+<tr >
+  <td class="active"><label> Nombre</label></td>
+  <td class="succes"><label> Login</label></td>
+  <td class="warning"><label> Rol</label></td>
+  <td class="info" ><label> Correo</label></td>
+  <td class="danger"><label> Opciones</label></td>
 </tr>
 <?php if (!empty($rows)): ?>
 
@@ -120,11 +121,15 @@ if (e == true) {
 
 </tr>
 </table>
-<ul class="list-inline">
+</div>
+<!-- http://localhost/prueba/post/Inicio.html
+id="obras-seleccionadas"
+-->
+<ul  class="obras-seleccionadas">
   <li><a href = "Inicio.html">Inicio</a></li>
   <li><a href = "post1.html">Crear post</a></li>
   <li><a href = "leer.php">Ver el post</a></li>
-  <li><a href = "salir.php">salir</article></a></li>
+  <li><a href = "salir.php">Salir</article></a></li>
 
 </ul>
 </div>

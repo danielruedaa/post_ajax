@@ -2,7 +2,6 @@
 
 include 'Conexion.php';
 // tomo los valores y los almaceno en una vairalbe
-
 $email = trim($_POST['email']);
 $Password = trim($_POST['Password']);
 
@@ -25,14 +24,13 @@ echo $sesion1[1];
     case 'Editor':
         // code...1
         session_start();
-        session_register('sess_var');
-        $sess_var = $sesion1[1];
+        $_SESSION['login'] = $sesion1[1];
         header('Location: '.$base_url.$sesion1[0].'.php');
         break;
     case 'Usuario':
         session_start();
-        session_register('sess_var');
-        $sess_var = $sesion1[1];
+        $_SESSION['login'] = $sesion1[1];
+        
         header('Location: '.$base_url.$sesion1[0].'.php');
         // code...
         break;
