@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/sesiones.js"></script>
     <style type="text/css">
         /*escritorio*/
 
@@ -59,7 +60,7 @@
 <title>Index</title>
 
 <body>
-    <FORM name="usuario" action="phpBaseDatos/ingresar.php" method="POST">
+    <FORM name="usuario" method="POST" id="formulario">
         <div class="container">
             <div class="text-center">
                 <h2>login</h2>
@@ -75,8 +76,11 @@
                         <a href="Crear.html"><small>registrarse</small></a>
                     </td>
                     <td class="text-center">
-                        <input type="submit" value="Ingresar  ">
+                        <input type="submit" value="Ingresar" id="login">
                   </table>
+                  <div class="resultados">
+
+                  </div>
             </div>
         </div>
     </form>
