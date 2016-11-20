@@ -18,23 +18,3 @@ function msge() {
         //document.location.href="Pp.php";
     }
 }
-//ejemplo jesus conde selector css
-
-$(document).ready(function() {
-    $('#obras-seleccionadas > li').addClass('horizontal');
-    $('#obras-seleccionadas li:not(.horizontal)').addClass('sub-level');
-
-
-});
-$(document).ready(function() {
-    $('a[@href^="mailto:"]').addClass('mailto');
-    $('a[@href$=".pdf"]').addClass('pdflink');
-
-
-});
-//poner colores en las lineas de una tabla
-$(document).ready(function() {
-    $('tr:odd').addClass('odd');
-    $('tr:odd').addClass('even');
-    $('td:contains ("camila")').addClass('destacado');
-});

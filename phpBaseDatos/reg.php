@@ -20,30 +20,30 @@ if ($Password != $rPass){die ('la clave es incorrecta <br><br> <a href = "http:/
 $sql="INSERT INTO usuario (nombre,login,telefono,rol,clave,email)VALUES ('$Nombre','$login','$Telefono','$rol','$Password','$email')";
 if(mysqli_query($con,$sql)){
 
-echo '<script language="javascript">alert("Ingreso el usuario");</script>'; 
-//header('Location: http://localhost/post/Crear.html');			
+echo '<script language="javascript">alert("Ingreso el usuario");</script>';
+//header('Location: http://localhost/post/Crear.html');
 }else{
-echo '<script language="javascript">alert("No ingreso el usuario");</script>'; 
+echo '<script language="javascript">alert("No ingreso el usuario");</script>';
 	}
-	mysqli_close($con);			
-		
+	mysqli_close($con);
+
 switch ($rol) {
 	case 'Administrador':
 		# code...
-	header('Location: http://localhost/post/Pp.php');
+	header('Location: http://localhost/post/Administrador.php');
 		break;
 	case 'Editor':
 		# code...
-	header('Location: http://localhost/post/Post1.html');
+	header('Location: http://localhost/post/Editor.html');
 		break;
 	case 'Usuario':
-	header('Location: http://localhost/post/leer.php');
+	header('Location: http://localhost/post/Usuario.php');
 		# code...
 		break;
-	
+
 	default:
 		# code...
-	//echo '<script language="javascript">alert("invalido");</script>'; 
+	//echo '<script language="javascript">alert("invalido");</script>';
 	header('Location: http://localhost/post/Inicio.html');
 
 		break;
@@ -53,11 +53,11 @@ switch ($rol) {
 
 
 
-	
+
 /*
 echo "nombre ingresado es " .$Nombre . "<br>";
 echo "Telefono  ".$Telefono. 		"<br>";
 echo "Rol  ".$rol. 		"<br>";
-echo "Clave ".$Password     ."<br>";	
+echo "Clave ".$Password     ."<br>";
 echo "consulta ". $sql;			*/
 ?>
