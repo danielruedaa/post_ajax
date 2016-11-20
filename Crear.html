@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/crear_usuario.js"></script>
     <style type="text/css">
         /*escritorio*/
 
@@ -46,7 +47,7 @@
     <div class="text-center">
         <h1>Bienvenido </h1>
     </div>
-    <FORM name="usuario" method="POST">
+    <FORM name="usuario" method="POST" id="formulario-crear">
         <!--  poner un campo para ingresar datos -->
         <div class="text-center">
             <div class="container">
@@ -55,26 +56,26 @@
                     <tr>
                         <td class="text-left">nombre completo : </td>
                         <td class="text-left">
-                            <input class="form-control has-success" type="text" name="Nombre" value="" placeholder="Daniel Rueda" required="required"> </td>
+                            <input class="form-control has-success" type="text" name="nombre" id="nombre" value="" placeholder="Daniel Rueda" required="required"> </td>
                         <!--   -->
                     </tr>
                     <td class="text-left"> Login : </td>
                     <td class="text-left">
-                        <input class="form-control has-error" type="text" name="login" value="" placeholder="shofry" required="required"> </td>
+                        <input class="form-control has-error" type="text" name="login" name="login" value="" placeholder="shofry" required="required"> </td>
                     <!--   -->
                     </tr>
                     <tr>
                         <td class="text-left">telefono: </td>
-                        <td class="text-left"><input class="form-control" type="text" name="Telefono" value="" placeholder="3193789277" required="required"> </td>
+                        <td class="text-left"><input class="form-control" type="text" name="telefono" id="telefono" value="" placeholder="3193789277" required="required"> </td>
                         <!--   -->
                     </tr>
                     <td class="text-left">email: </td>
-                    <td class="text-left"><input class="form-control" type="text" name="email" value="" placeholder="carlos@hotmail.com" required="required"> </td>
+                    <td class="text-left"><input class="form-control" type="text" name="email" id="email" value="" placeholder="carlos@hotmail.com" required="required"> </td>
                     <!--   -->
                     </tr>
                     <tr>
                         <td class="text-left">cuenta: </td>
-                        <td class="text-left"><select class="form-control" name="Rol">
+                        <td class="text-left"><select class="form-control" name="rol" id="rol">
 <option> - </option>
 <option>Administrador</option>
 <option>Editor</option>
@@ -83,18 +84,18 @@
                         <!-- http://html.hazunaweb.com/120.php  -->
                     </tr>
                     <td class="text-left">clave:</td>
-                    <td class="text-left"> <input class="form-control" type="password" name="Password" value="" placeholder="*********" required="required"> </td>
+                    <td class="text-left"> <input class="form-control" type="password" id="pass"  name="pass" value=""  placeholder="*********" required="required"> </td>
                     <!--   -->
                     </tr>
                     <tr>
                         <td class="text-left">confirmar clave:</td>
-                        <td class="text-left"> <input class="form-control" type="password" name="rPassword" value="" placeholder="*********" required="required"> </td>
+                        <td class="text-left"> <input class="form-control" type="password" name="rpass"id="rpass"  value="" placeholder="*********" required="required"> </td>
                         <!--   -->
                     </tr>
                     <tr>
                         <td class="text-left"><a href="Inicio.html">regresar</a>
                         </td>
-                        <td class="text-left"> <input class="btn btn-primary" type="submit" value="Crear Cuenta  "> </td>
+                        <td class="text-left"> <input class="btn btn-primary" type="submit" value="Crear Cuenta  " id="crear-c"> </td>
                     </tr>
             </div>
 

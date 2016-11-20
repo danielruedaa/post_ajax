@@ -3,12 +3,12 @@ include'Conexion.php';
 
 // tomo los valores y los almaceno en una vairalbe
 
-$Nombre = trim($_POST['Nombre']);
-$Telefono=trim($_POST['Telefono']);
+$Nombre = trim($_POST['nombre']);
+$Telefono=trim($_POST['telefono']);
 $email=trim($_POST['email']);
-$rol=trim($_POST['Rol']);
-$Password=trim($_POST['Password']);
-$rPass=trim($_POST['rPassword']);
+$rol=trim($_POST['rol']);
+$Password=trim($_POST['pass']);
+$rPass=trim($_POST['rpass']);
 $login=trim($_POST['login']);
 
 //tomar los valores enviados del formulario
