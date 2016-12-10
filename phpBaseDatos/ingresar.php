@@ -10,14 +10,14 @@ $Consulta1 = mysqli_query($con, "SELECT rol,login,nombre FROM usuario WHERE  cla
 $result_usuario = array();
 $result_usuario = mysqli_fetch_row($Consulta1);
 //echo $sesion1[0]." ".$sesion1[1];
-$datos_sql = array('rol' =>$result_usuario[0] ,
+$datos = array('rol' =>$result_usuario[0] ,
 'login' => $result_usuario[1],
 'nombre' => $result_usuario[2]);
-//echo json_encode($datos_sql);
+echo json_encode($datos);
 
 $_SESSION['login'] = $result_usuario[1];
-  $base_url = 'http://localhost/post/';
-
+  $base_url = 'http://localhost/post_ajax/';
+/*
       switch ($result_usuario[0]) {
 
     case 'Administrador':
@@ -37,4 +37,5 @@ $_SESSION['login'] = $result_usuario[1];
     header('Location: '.$base_url.'Inicio.html');
         break;
             }
+*/
     mysqli_close($con);

@@ -11,16 +11,21 @@ $(document).ready(function() {
       beforeSend:function() {
         $('#ingresar').val("conectando...");
       },
-      error:function (a,b,c) {
-       console.log(a);
-       console.log(b);
-       console.log(c);
-     }
-     /*
+      error:function ( jqXHR,textStatus,errorThrown) {
+       console.log( jqXHR);
+       console.log(textStatus);
+       console.log(errorThrown);
+     },
+
       success:function(datos) {// si funciono
-        $('#resultados').html(datos[0].rol);
-        //$('#respuesta').html(datos.envio);
-      }*/
+        var base_url = 'http://localhost/post_ajax/';
+        $('#resultados').html(datos);
+        $('#completar').html(datos.rol); //no funciono de esta forma
+
+         //$(location).attr('href',base_url+'Editor.html');
+        // $(location).attr('href',base_url+datos[0].rol+'.html');
+
+      }
     });
   });
 });
