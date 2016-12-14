@@ -3,12 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<!--<link rel="stylesheet" type="text/css" href="estiloCss/hojaEstilo.css"/>-->
-<script src="js/funciones.js" ></script>
+
+
+<link rel="stylesheet" type="text/css" href="estiloCss/hojaEstilo.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/funciones.js" ></script>
 <style type="text/css">
 /*escritorio*/
   @media(min-width: 1200px){body{color:gray;}}
@@ -55,59 +58,48 @@ session_start();
         echo '... ';
     }
    ?>
-  <div class="table-responsive">
-<table class="table">
+
+<table  id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 <div class="text-center">
 
-<tr >
-  <td class="active"><label> Nombre</label></td>
-  <td class="succes"><label> Login</label></td>
-  <td class="warning"><label> Rol</label></td>
-  <td class="info" ><label> Correo</label></td>
-  <td class="danger"><label> Opciones</label></td>
-</tr>
+<thead >
+  <tr>
+     <th class="active"><label> </label></th>
+      <th class="active"><label> Nombre</label></th>
+      <th class="succes"><label> Login</label></th>
+      <th class="warning"><label> Rol</label></th>
+      <th class="info" ><label> Correo</label></th>
+      <th class="danger"><label> Opciones</label></th>
+  </tr>
+  <tfoot>
+    <tr>
+          <th class="active"><label></label></th>
+        <th class="active"><label> Nombre</label></th>
+        <th class="succes"><label> Login</label></th>
+        <th class="warning"><label> Rol</label></th>
+        <th class="info" ><label> Correo</label></th>
+        <th class="danger"><label> Opciones</label></th>
+    </tr>
+  </tfoot>
+</thead>
 <?php if (!empty($rows)): ?>
 
 <?php
 
 if ($control == true) {
     foreach ($rows as $key => $value) : ?>
+
+<tbody>
   <tr>
+    <td id="_id"><?php  $value['id'] ?></td>
     <td><?php echo $value['name'] ?></td>
     <td><?php echo $value['login'] ?></td>
     <td><?php echo $value['rol'] ?></td>
     <td><?php echo $value['email'] ?></td>
-   <td>
-
-<input   type="button" value="editar" onclick="msge()" />
-<input   type="button" value="borrar" onclick="msgb()" />
-    </td>
+   <td><input type="button" id="editar"value="editar" class="btn btn-info"/>
+   <input type="button" id="delete"value="borrar" class="btn btn-danger"/></td>
   </tr>
-<!--
-<script language="javascript">
-// funcion para ocultar
-function msgb(){
-var b=confirm("Deseas borrar este registro?");
-if (b == true) {
-   document.location.href="phpBaseDatos/borrar.php?id=<?php // echo $value['id']?>";
-   alert(" registro Borrado  ");
-} else {
-  // document.location.href="Pp.php";
-    }
-}
-function msge(){
-var e=confirm("Deseas editar este registro?");
-if (e == true) {
-    //document.location.href="phpBaseDatos/editar.php?id=<?php // echo $value['id']?>";
-    document.location.href="Ppeditar.php?id=<?php // echo $value['id']?>";
-
-} else {
- //document.location.href="Pp.php";
-  }
-}
-</script>
--->
-
+  </tbody>
 <?php
  endforeach;
 } else {
@@ -116,26 +108,35 @@ if (e == true) {
   ?>
 <?php else : ?>
 <?php endif; ?>
-
 </tr>
 </table>
 </div>
-<!-- http://localhost/prueba/post/Inicio.html
-id="obras-seleccionadas"
--->
-<ul  class="obras-seleccionadas">
-  <li><a href = "Inicio.html">Inicio</a></li>
-  <li><a href = "post1.html">Crear post</a></li>
-  <li><a href = "leer.php">Ver el post</a></li>
-  <li><a href = "salir.php">Salir</article></a></li>
 
-</ul>
+<div class="container">
+  <div class="row">
+  <div class="dropdown">
+      <div class="col-md-12">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" aria-extended="true">
+      Opciones
+          <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li class="dropdown-header"> Opciones</li>
+        <li class="divider"> </li>
+        <li><a href = "Inicio.html">Inicio</a></li>
+        <li><a href = "post1.html">Crear post</a></li>
+        <li><a href = "leer.php">Ver el post</a></li>
+              <li class="divider"> </li>
+              <li><a href = "salir.php">Salir</article></a></li>
+    </ul>
+  </div>
 </div>
 </div>
 
+
+
+
+
+</div>
 </body>
-
-
-
-
 </html>

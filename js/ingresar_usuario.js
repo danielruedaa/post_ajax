@@ -7,7 +7,7 @@ $(document).ready(function() {
       url: 'phpBaseDatos/ingresar.php',//direccion
       data: $('#formulario-login').serialize(),
       type: 'POST',// medio de envio
-      //dataType: 'json',//como llega la respuseta
+      dataType: 'json',//como llega la respuseta
       beforeSend:function() {
         $('#ingresar').val("conectando...");
       },
@@ -21,9 +21,8 @@ $(document).ready(function() {
         var base_url = 'http://localhost/post_ajax/';
         $('#resultados').html(datos);
         $('#completar').html(datos.rol); //no funciono de esta forma
-
-         //$(location).attr('href',base_url+'Editor.html');
-        // $(location).attr('href',base_url+datos[0].rol+'.html');
+         $('#ingresar').val("success");
+         $(location).attr('href',base_url+datos.rol+'.php');
 
       }
     });

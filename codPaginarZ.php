@@ -1,5 +1,5 @@
 
- <?php 
+ <?php
 include ('phpBaseDatos/Conexion.php');
 require_once("zebra.php");
 
@@ -23,8 +23,6 @@ while($row = mysqli_fetch_array($result)){
    	   'login' 	=> $row['login'],
    	   'rol' 	=> $row['rol'],
    	   'email' 	=> $row['email'],
-   	);		
+   	);
 }
-
-
 $paginacion->render();
